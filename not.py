@@ -7,23 +7,23 @@ def find_maximum_sum(grid):
 
 
     for j in range(cols):
-        if grid[0][j] != 'F':
+        if grid[0][j] != 'S':
             dp[0][j] += int(grid[0][j])
 
     
     for j in range(1, cols):
-        if grid[0][j] == 'S':
+        if grid[0][j] == 'F':
             dp[0][j] = dp[0][j-1]
-        elif grid[0][j] != 'F':
+        elif grid[0][j] != 'S':
             dp[0][j] = dp[0][j-1] + int(grid[0][j])
         else:
             dp[0][j] = dp[0][j-1]
 
     
     for i in range(1, rows):
-        if grid[i][0] == 'S':
+        if grid[i][0] == 'F':
             dp[i][0] = dp[i-1][0]
-        elif grid[i][0] != 'F':
+        elif grid[i][0] != 'S':
             dp[i][0] = dp[i-1][0] + int(grid[i][0])
         else:
             dp[i][0] = dp[i-1][0]
@@ -31,9 +31,9 @@ def find_maximum_sum(grid):
     
     for i in range(1, rows):
         for j in range(1, cols):
-            if grid[i][j] == 'S':
+            if grid[i][j] == 'F':
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
-            elif grid[i][j] != 'F':
+            elif grid[i][j] != 'S':
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1]) + int(grid[i][j])
             else:
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
