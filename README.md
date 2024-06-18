@@ -1,4 +1,4 @@
-# Creativity-Problem-Solving-Problem-3
+# Creative-problem-solving-ideas
 
 **최대구간합 문제임**
 
